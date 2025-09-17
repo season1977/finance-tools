@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Tools - Expense Tracker & Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>My Finance Tools</h1>
+
+    <div class="app-selector">
+      <label for="appSelect">Choose an app:</label>
+      <select id="appSelect">
+        <option value="tracker">💰 Expense Tracker</option>
+        <option value="converter">💱 Currency Converter</option>
+      </select>
+    </div>
+
+    <div id="trackerApp" class="app-section">
+      <h2>Expense Tracker</h2>
+      <div class="forms">
+        <input type="text" id="expenseName" placeholder="Expense Name">
+        <input type="number" id="expenseAmount" placeholder="Amount">
+        <select id="expenseCurrency">
+          <option value="NGN">₦ (Naira)</option>
+          <option value="USD">$ (Dollar)</option>
+          <option value="GBP">£ (Pound)</option>
+          <option value="INR">₹ (Rupee)</option>
+          <option value="GHS">₵ (Cedis)</option>
+          <option value="EUR">€ (Euro)</option>
+        </select>
+        <button onclick="addExpense()">Add Expense</button>
+      </div>
+      <ul id="expenseList"></ul>
+      <h3>Total: <span id="total">0</span></h3>
+    </div>
+
+    <div id="converterApp" class="app-section">
+      <h2>Currency Converter</h2>
+      <div class="converter-inputs">
+        <input type="number" id="convertAmount" placeholder="Enter amount">
+        <select id="fromCurrency">
+          <option value="USD">$ (Dollar)</option>
+          <option value="NGN">₦ (Naira)</option>
+          <option value="GBP">£ (Pound)</option>
+          <option value="INR">₹ (Rupee)</option>
+          <option value="GHS">₵ (Cedis)</option>
+          <option value="EUR">€ (Euro)</option>
+        </select>
+        <span>to</span>
+        <select id="toCurrency">
+          <option value="NGN">₦ (Naira)</option>
+          <option value="USD">$ (Dollar)</option>
+          <option value="GBP">£ (Pound)</option>
+          <option value="INR">₹ (Rupee)</option>
+          <option value="GHS">₵ (Cedis)</option>
+          <option value="EUR">€ (Euro)</option>
+        </select>
+        <button onclick="convertCurrency()">Convert</button>
+      </div>
+      <h3>Result: <span id="convertedResult">0</span></h3>
+    </div>
+  </div>
+<footer>
+  <div class="footer-container">
+    <p> Developed by Abdulrasaq S. Bello | +234 912 076 2056.</p>
+    <p>Explore and enjoy!</p>
+    <div class="social-links">
+      <a href="https://github.com/season1977" target="_blank">GitHub</a> |
+      <a href="https://www.linkedin.com/in/season1977" target="_blank">LinkedIn</a> |
+      <a href="mailto:rasaqbello782@gmail.com">Email</a> |
+      
+    </div>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
