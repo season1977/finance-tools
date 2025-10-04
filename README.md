@@ -28,7 +28,7 @@ A simple web app to help you manage daily expenses and convert currencies in rea
 
 - **Frontend:** HTML, CSS, JavaScript
 
-
+API --- https://open.er-api.com/v6/latest/USD
 
 ## 📁 Folder Structure
 
