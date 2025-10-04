@@ -82,8 +82,7 @@ const exchangeRates = {
   GHS: { USD: 0.067, NGN: 106, GBP: 0.056, INR: 6, EUR: 0.063 },
   EUR: { USD: 1.09, NGN: 1750, GBP: 0.87, INR: 95, GHS: 16, }
 };
-
-function convertCurrency() {
+async function convertCurrency() {
   const amount = parseFloat(document.getElementById("convertAmount").value);
   const from = document.getElementById("fromCurrency").value;
   const to = document.getElementById("toCurrency").value;
@@ -98,12 +97,20 @@ function convertCurrency() {
     return;
   }
 
-  const rate = exchangeRates[from][to];
-  if (!rate) {
-    alert("Conversion rate not available");
-    return;
-  }
+  try {
+    const response = await fetch(`https://open.er-api.com/v6/latest/${from}`);
+    const data = await response.json();
 
-  const result = amount * rate;
-  document.getElementById("convertedResult").textContent = result.toFixed(2);
+    if (!data.rates || !data.rates[to]) {
+      alert("Conversion failed. Currency not supported.");
+      return;
+    }
+
+    const rate = data.rates[to];
+    const result = amount * rate;
+    document.getElementById("convertedResult").textContent = result.toFixed(2);
+  } catch (error) {
+    console.error("Error fetching exchange rate:", error);
+    alert("Failed to fetch exchange rate. Please check your connection.");
+  }
 }
